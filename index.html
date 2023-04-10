@@ -2,33 +2,50 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
   <title>Frontend Mentor | IP Address Tracker</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+  <!-- map links -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+  integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+  crossorigin=""/>
+ <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+ integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+ crossorigin=""></script>
 </head>
 <body>
-
-  IP Address Tracker
-
-  Search for any IP address or domain
-
-  IP Address
-  Location
-  Timezone
-    UTC <!-- add offset value dynamically using the API -->
-  ISP
-  
+  <section class="ui-field">
+    <h1>IP Address Tracker</h1>
+    <form action="" onsubmit="submitIp();return false"> <!-- prevents refreshing page -->
+      <input type="search" placeholder="Search for any IP address or domain" data-search-ip="">
+      <div class="submit-btn" data-submit=""><input type="image" src="./images/icon-arrow.svg" alt="submit button"></div>
+    </form>
+    <div class="err-msg">Invalid format/address!</div>
+    <section class="address-field">
+      <div>
+        <h2 class="address-headers">IP ADDRESS</h2>
+        <div class="address-details" data-address=""></div>
+      </div>
+      <div class="border-left">
+        <h2 class="address-headers">LOCATION</h2>
+        <div class="address-details" data-location=""></div>
+      </div>
+      <div class="border-left">
+        <h2 class="address-headers">TIMEZONE</h2>
+        <div class="address-details" data-timezone=""></div>
+      </div>
+      <div class="border-left">
+        <h2 class="address-headers">ISP</h2>
+        <div class="address-details" data-isp=""></div>
+      </div>
+    </section>
+  </section>
+  <div class="map" id="map"></div>
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+    Coded by <a href="#">Sean</a>.
   </div>
 </body>
 </html>
